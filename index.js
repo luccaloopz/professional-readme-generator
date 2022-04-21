@@ -22,7 +22,7 @@ const questions = [
     {
         type: 'input',
         message: 'Please enter the usage information for your project.',
-        name: 'usage information'
+        name: 'usage'
     },
     {
         type: 'input',
@@ -37,7 +37,7 @@ const questions = [
     {
         type: 'list',
         message: 'Which licese would you like to choose for your application?',
-        choices: ["MIT License", "Apache License 2.0", "GNU GPLv3", "ISC License"],
+        choices: ["MIT License", "Apache License 2.0", "GNU General Public License v3.0", "ISC License"],
         name: 'license'
     },
     {
@@ -47,23 +47,30 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'What is your email?',
-        name: 'username'
+        message: 'What is your email address?',
+        name: 'email'
     }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    inquirer.prompt(questions).then((data) => {
-        console.log(data);
-        
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            throw err;
+        };
+        console.log('File saved');
     })
 }
 
 // TODO: Create a function to initialize app
 function init() {
-    writeToFile();
-    generateMD;
+    inquirer.prompt(questions).then(answers => {
+        return generateMD(answers);
+    }).then(data => {
+        console.log(data);
+        let fileName = `README.md`
+        return writeToFile(fileName, data);
+    })
 }
 
 // Function call to initialize app
