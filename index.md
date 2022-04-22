@@ -1,20 +1,18 @@
 # 
 
+[![License](https://img.shields.io/badge/License-MIT-green.svg)]()
+
 ## **Description**
 
 
 ## **Table Of Contents**
 
-* [Badges](#badges)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [Tests](#tests)
 * [License](#license)
 * [Questions](#questions)
-
-## **Badges**
-![GitHub](https://img.shields.io/github/license//)
 
 ## **Installation**
 

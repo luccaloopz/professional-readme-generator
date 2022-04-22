@@ -60,18 +60,19 @@ function writeToFile(fileName, data) {
         };
         console.log('File saved');
     })
-}
+};
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then(answers => {
         return generateMD(answers);
     }).then(data => {
-        console.log(data);
-        let fileName = `README.md`
+        let fileName = `READMENEW.md`
         return writeToFile(fileName, data);
+    }).catch(err => {
+        console.log(err)
     })
-}
+};
 
 // Function call to initialize app
 init();
