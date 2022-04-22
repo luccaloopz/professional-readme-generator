@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-let generateMD = require('./utils/generateMarkdown');
+const generateMD = require('./utils/generateMarkdown');
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -59,7 +59,7 @@ function writeToFile(fileName, data) {
             throw err;
         };
         console.log('File saved');
-    })
+    });
 };
 
 // TODO: Create a function to initialize app
@@ -67,11 +67,11 @@ function init() {
     inquirer.prompt(questions).then(answers => {
         return generateMD(answers);
     }).then(data => {
-        let fileName = `READMENEW.md`
+        let fileName = `READMENEW.md`;
         return writeToFile(fileName, data);
     }).catch(err => {
-        console.log(err)
-    })
+        console.log(err);
+    });
 };
 
 // Function call to initialize app
